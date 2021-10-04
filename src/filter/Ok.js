@@ -152,8 +152,7 @@ function Ok() {
       "isNCR": true
     }
   ]
-  useEffect(() => {
-      
+  useEffect(() => {  
     var objcollection = ApiData.map(data => {
       var obj = {}
       var datapouch = (data.pouchName);
@@ -170,64 +169,29 @@ function Ok() {
     ok[data.pouchName] = data.data
 
   })
-
-const allData=Object.entries(ok)
-
-allData.map(data=>{
- 
-// data.map(data=>{
-  
-// }
-//     )
-})
-
-     
-
-
   return (
-    <div className="App">
-      hj
-
-
-      
-
-      
+    <div className="App">   
   <table>
-    {Object.keys(ok).map((data,index)=>{
-          
-         return  <th>{data}</th>
-           
-     
-       
+    {Object.keys(ok).map((data,index)=>{       
+         return  <th>{data}</th>    
     })}
     <tbody>
     {Object.keys(ok).map((data,index)=>{   
-            return   <td>
-                <tr>{ok[data].map(data=> <tr>
-                    <td>{data.price}</td>
-                    <td>{data.deliveryType}</td>
-                    <td>{data.deliveryType}</td>
+            return <td>
+             <tr>{ok[data].map(data=> <tr>
+                    <td>{data.price?`price-${data.price}`:''}</td>
+                    <td>{data.deliveryType?data.deliveryType:''}</td>
                     </tr>)}
                 </tr>
-
-
-                </td>
-
-        
-            
-      
-        
+                <tr>{ok[data].map(data=> <tr>
+                
+                    <td>{data.isNCR?'isNCR-true':''}</td>
+                    </tr>)}
+                </tr>
+               </td>
      })}
         </tbody>
-    
   </table>
-             
-               
-            
-            
-            
-      
-     
     </div>
   );
 }
